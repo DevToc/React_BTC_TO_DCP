@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiHide, BiShow } from "react-icons/bi";
-import { IoEllipse } from "react-icons/io5";
+
 import LeftTexture from "../../../components/Texture/LeftTexture/Index";
 import RightTexture from "../../../components/Texture/RightTexture/Index";
 import BlurCircle from "../../../components/common/BlurCircle";
 import Label from "../../../components/common/Label";
 import Input from "../../../components/common/Input";
-import MOdal from "../../../components/common/Modal";
-import "./index.scss";
 import Modal from "../../../components/common/Modal";
+import Description from "../../../components/Description/Index";
 
 const Register = () => {
+  
   const [isHide, setHide] = useState(true);
   const [isConfirmHide, setConfirmHide] = useState(true);
   const [modalShow, setModalShow] = useState(false);
@@ -107,19 +107,13 @@ const Register = () => {
                 </div>
               </div>
             </div>
-            <div className="description  flex items-start justify-start text-left mt-2">
-              <div className="mt-1 mr-2">
-                <IoEllipse color={"#38ae00"}></IoEllipse>
-              </div>
-              <p className="text-left text-[18px] leading-[27px] font-medium text-[#ffffff80]">
-                {" "}
-                This is the wallet's encryption password, not the user's
-                password.{" "}
-              </p>
-            </div>
+            <Description>
+              {" "}
+              This is the wallet's encryption password, not the user's password.
+            </Description>
             <div className="btn-register mt-[30px]">
               <button
-                className="text-white bg-[#38ae00] px-[95px] py-[11px] text-[27px] leading-[40px] font-semibold rounded-[31.5px]"
+                className=" shadow-[0px_0px_24px_#38AE00]  text-white bg-[#38ae00] px-[95px] py-[11px] text-[27px] leading-[40px] font-semibold rounded-[31.5px]"
                 onClick={(e) => setModalShow(true)}
               >
                 Register
@@ -139,9 +133,15 @@ const Register = () => {
           </div>
         </div>
       </div>
-<Modal title={"Successfully Registered"} description={'You are successfully registered to your account.'} status={'success'} show={modalShow} setModalShow = {setModalShow} buttonCaption={'Thanks'} to = {'/login'}>
-
-</Modal>
+      <Modal
+        title={"Successfully Registered"}
+        description={"You are successfully registered to your account."}
+        status={"success"}
+        show={modalShow}
+        setModalShow={setModalShow}
+        buttonCaption={"Thanks"}
+        to={"/login"}
+      ></Modal>
     </div>
   );
 };

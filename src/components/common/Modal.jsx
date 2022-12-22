@@ -10,7 +10,9 @@ const Modal = ({
   setModalShow,
   to
 }) => {
+
   const navigate = useNavigate();
+  
   return (
     <div
       id="overlay"
@@ -92,7 +94,7 @@ const Modal = ({
         </div>
         <div className="thanks">
           <button
-            className="text-white bg-[#38ae00] px-[48px] py-[11px] text-[20px] leading-[30px] font-semibold rounded-[25.3px]"
+            className="shadow-[0px_0px_24px_#38AE00]  text-white bg-[#38ae00] px-[48px] py-[11px] text-[20px] leading-[30px] font-semibold rounded-[25.3px]"
             onClick={e=>{setModalShow(false)
               if(to!==undefined) navigate(`${to}`)
             }}

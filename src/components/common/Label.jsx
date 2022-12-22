@@ -8,5 +8,4 @@ const Label = (props) => {
   );
 }
  
- 
 export default Label;

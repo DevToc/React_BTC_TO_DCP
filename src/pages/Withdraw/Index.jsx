@@ -1,15 +1,15 @@
 import React, { useState } from "react";
+
 import Label from "../../components/common/Label";
 import Input from "../../components/common/Input";
-
-import { IoEllipse } from "react-icons/io5";
 import Button from "../../components/common/Button";
 import Modal from "../../components/common/Modal";
 import useScreen from "../../hooks/useScreen";
+import Description from "../../components/Description/Index";
 
 const Withdraw = () => {
   const [modalShow, setModalShow] = useState(false);
-  const screenSize  = useScreen();
+  const screenSize = useScreen();
   const handleClick = () => {
     setModalShow(true);
   };
@@ -29,7 +29,7 @@ const Withdraw = () => {
           name=""
           value={`{'amount': 70.0, 'beneficiaries': ['package.id equal b5b99124-1444-417a-9fcf-04944861cf68'], 'beneficiaries_sha': ' d745e2f7aa1cff52b038bb33fec756942c7142a862519a1bc89a9f84704d9e10', 'transaction_id': 'ef0581ca-bb48-494d-862a-81sd84214dec'}`}
           id=""
-          rows={screenSize.dynamicWidth<935?8: 5}
+          rows={screenSize.dynamicWidth < 935 ? 8 : 5}
           className="bg-[#474747] w-100  outline-none py-4 px-6 border-2 border-[#009600] rounded-[45px] text-white text-[23px] leading-[34px] font-medium"
         ></textarea>
       </div>
@@ -41,15 +41,9 @@ const Withdraw = () => {
         <div className="collection-password flex flex-col items-start basis-1/2">
           <Label>Encrypted Password *:</Label>
           <Input title={"wallet name"}></Input>
-          <div className="description mt-[10px] flex items-start justify-start text-left">
-            <div className="mt-1 mr-2">
-              <IoEllipse color={"#38ae00"}></IoEllipse>
-            </div>
-            <p className="text-left text-[18px] leading-[27px] font-medium text-[#ffffff80]">
-              {" "}
-              This is the wallet's encryption password, not the user's password.{" "}
-            </p>
-          </div>
+          <Description>
+            This is the wallet's encryption password, not the user's password.
+          </Description>
           <div className="withdraw mt-[66px] flex justify-center md:justify-end items-end w-100">
             <Button
               type={"green"}
@@ -59,8 +53,14 @@ const Withdraw = () => {
           </div>
         </div>
       </div>
-     <Modal title={'Withdrawal Successful.'} setModalShow = {setModalShow} show = {modalShow} description={'The withdrawal was successfully reported.'} buttonCaption={'Thanks'} status={'success'}>
-     </Modal>
+      <Modal
+        title={"Withdrawal Successful."}
+        setModalShow={setModalShow}
+        show={modalShow}
+        description={"The withdrawal was successfully reported."}
+        buttonCaption={"Thanks"}
+        status={"success"}
+      ></Modal>
     </div>
   );
 };

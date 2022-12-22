@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { IoEllipse } from "react-icons/io5";
+
 import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
 import Label from "../../components/common/Label";
 import Modal from "../../components/common/Modal";
 import Select from "../../components/common/Select";
+import Description from "../../components/Description/Index";
 
 const Create = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -13,6 +14,7 @@ const Create = () => {
     e.preventDefault();
     setModalShow(true);
   };
+
   return (
     <div className="create min-h-screen bg-back px-1 sm:px-5 py-16 flex flex-col relative justify-center items-center">
       <div className="content w-11/12 2xl:w-2/3">
@@ -66,16 +68,10 @@ const Create = () => {
                 <div className="item flex flex-col items-start basis-1/2  ">
                   <Label>Encrypted Password: *</Label>
                   <Input title={"wallet name"}></Input>
-                  <div className="description  flex items-start justify-start text-left mt-2">
-                    <div className="mt-1 mr-2">
-                      <IoEllipse color={"#38ae00"}></IoEllipse>
-                    </div>
-                    <p className="text-left text-[18px] leading-[27px] font-medium text-[#ffffff80]">
-                      {" "}
-                      This is the wallet's encryption password, not the user's
-                      password.{" "}
-                    </p>
-                  </div>
+                  <Description>
+                    This is the wallet's encryption password, not the user's
+                    password.
+                  </Description>
                 </div>
               </div>
               <div className="btn-save mt-[81px]">
@@ -96,9 +92,15 @@ const Create = () => {
           </div>
         </div>
       </div>
-      <Modal title={'New Wallet Created!'} setModalShow={setModalShow} description={'You successfully created new wallet.'} buttonCaption={'Thanks'} status={'success'} show={modalShow} to={'/home'}>
-
-      </Modal>
+      <Modal
+        title={"New Wallet Created!"}
+        setModalShow={setModalShow}
+        description={"You successfully created new wallet."}
+        buttonCaption={"Thanks"}
+        status={"success"}
+        show={modalShow}
+        to={"/home"}
+      ></Modal>
     </div>
   );
 };

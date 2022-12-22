@@ -1,8 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import Input from "../../components/common/Input";
 import Label from "../../components/common/Label";
-import { IoEllipse } from "react-icons/io5";
 import Button from "../../components/common/Button";
 import Plus from "../../components/Plus/Index";
 import Description from "../../components/Description/Index";
@@ -17,12 +16,7 @@ const Transfer = () => {
         <Label>{'Input all details for simple, fast and secure transfer.'}</Label>
       </div>
       <div className="sum mt-[13px] flex flex-col items-start w-4/5 md:w-2/5">
-        <label
-          htmlFor=""
-          className="text-[23px] leading-[34px] text-[#ffffff80] mb-2"
-        >
-          Sum
-        </label>
+        <Label>Sum</Label>
         <input
           type="text"
           value={300}
@@ -46,7 +40,6 @@ const Transfer = () => {
         <Plus/>
         </div>
       </div>
-      
       <div className="encrypted mt-[40px] flex flex-col w-2/2 xl:w-2/5 items-start">
         <Label>Encrypted Password:</Label>
         <Input title={'wallet name'}></Input>
@@ -58,7 +51,5 @@ const Transfer = () => {
     </div>
   );
 };
-
-Transfer.propTypes = {};
 
 export default Transfer;

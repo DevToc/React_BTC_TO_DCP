@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import BlurCircle from "../../components/common/BlurCircle";
 import Button from "../../components/common/Button";
 import Wallet from "../../components/wallet";
@@ -31,10 +32,7 @@ const Main = () => {
             <Wallet></Wallet>
           </div>
           <div className="btn-create-wallet mt-[127px]">
-            <Link
-              to="/create
-      "
-            >
+            <Link to="/create">
               <Button
                 type={"green"}
                 text={"+ Create new wallet"}

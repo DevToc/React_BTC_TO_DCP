@@ -1,46 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+
 import HomeMenu from "./MenuItem/Home/Index";
 import Messages from "./MenuItem/Messages/Index";
 import Movements from "./MenuItem/Movements/Index";
 import Transfer from "./MenuItem/Transfer/Index";
 import Withdraw from "./MenuItem/Withdraw/Index";
+
 const Header = (props) => {
   const [open, setOpen] = useState(true);
-  const location = useLocation()
+  const location = useLocation();
   const [activeUrl, setActiveUrl] = useState(location.pathname.slice(1));
+
   const navigate = useNavigate();
+
   const handleClick = (url) => (e) => {
     e.preventDefault();
     setActiveUrl(url);
     navigate(`/${url}`);
   };
-    const [screenSize, getDimension] = useState({
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight,
+  });
+  const setDimension = () => {
+    getDimension({
       dynamicWidth: window.innerWidth,
-      dynamicHeight: window.innerHeight
+      dynamicHeight: window.innerHeight,
     });
-    const setDimension = () => {
-      getDimension({
-        dynamicWidth: window.innerWidth,
-        dynamicHeight: window.innerHeight
-      })
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", setDimension);
+    if (screenSize.dynamicWidth < 1145) {
+      setOpen(false);
+    } else {
+      setOpen(true);
     }
-   
-    useEffect(() => {
-      window.addEventListener('resize', setDimension);
-      if(screenSize.dynamicWidth<1145){
-        setOpen(false)
-      }
-      else {
-        setOpen(true)
-      }
-      
-      return(() => {
-          window.removeEventListener('resize', setDimension);
-      })
-    }, [screenSize])
-   
+    return () => {
+      window.removeEventListener("resize", setDimension);
+    };
+  }, [screenSize]);
 
   return (
     <div className="flex bg-back">
@@ -50,7 +51,10 @@ const Header = (props) => {
         } flex flex-col min-h-screen pb-[25px] bg-back shadow duration-300 border-r-2 border-r-[#474747]`}
       >
         <div className="w-100">
-          <Link to={'/home'} className="flex justify-center items-center space-x-4 border-b-2 border-b-[#474747] w-100 pb-[12px] pt-[25px]">
+          <Link
+            to={"/home"}
+            className="flex justify-center items-center space-x-4 border-b-2 border-b-[#474747] w-100 pb-[12px] pt-[25px]"
+          >
             <img
               src="/assets/images/currency.png"
               alt=""
@@ -66,7 +70,9 @@ const Header = (props) => {
             )}
           </Link>
 
-          <div className={`flex-1 py-[52px] ${!open ? " " : "pl-[52px] w-100"}`}>
+          <div
+            className={`flex-1 py-[52px] ${!open ? " " : "pl-[52px] w-100"}`}
+          >
             <ul className="pt-13 pb-4 space-y-[72px] text-[17.7px] leading-[27px] text-[#6c6c6c] font-medium">
               <li className="rounded-sm">
                 <HomeMenu

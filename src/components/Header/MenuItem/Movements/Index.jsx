@@ -90,7 +90,6 @@ const Movements = ({ isActive, handleClick,open }) => {
           </defs>
         </svg>
       )}
-
      { open && <span className={isActive ? `text-white` : ``}>Movements</span>}
     </a>
   );

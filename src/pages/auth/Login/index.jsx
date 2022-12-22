@@ -1,32 +1,38 @@
 import React, { useState } from "react";
 import { BiHide, BiShow } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
+
 import BlurCircle from "../../../components/common/BlurCircle";
 import Input from "../../../components/common/Input";
 import Label from "../../../components/common/Label";
 import LeftTexture from "../../../components/Texture/LeftTexture/Index";
 import RightTexture from "../../../components/Texture/RightTexture/Index";
 
-import "./index.scss";
-
 const Login = () => {
+
   const [isHide, setHide] = useState(true);
+
   const navigate = useNavigate();
-  const handleLogin = () =>{
-      navigate('/main');
-  }
+  
+  const handleLogin = () => {
+    navigate("/main");
+  };
 
   return (
     <div className=" w-screen min-h-screen bg-back text-white py-2 px-4 sm:px-16  items-center relative">
       <LeftTexture />
-      <RightTexture/>
+      <RightTexture />
       <div className="filter absolute top-[-41px] left-[38px]">
-        <BlurCircle/>
+        <BlurCircle />
       </div>
       <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-24">
         <div className="lg:basis-1/2  lg:pt-32 pt-14 max-w-[678px]">
           <div className="title flex items-center justify-center lg:justify-start">
-            <img src="/assets/images/currency.png" alt="" className="sm:w-[103px] sm:h-[110px] w-[50px] h-[52px]" />
+            <img
+              src="/assets/images/currency.png"
+              alt=""
+              className="sm:w-[103px] sm:h-[110px] w-[50px] h-[52px]"
+            />
             <p className=" ml-[15px] text-[34px] leading-[51px] font-normal ">
               Digital Wallet
             </p>
@@ -51,16 +57,16 @@ const Login = () => {
             </div>
             <div className="username mt-[30px] xl:mt-[41px] ">
               <div className="title text-[23px] leading-[34px] text-whiteWithOpacity text-left">
-               <Label>Username</Label>
+                <Label>Username</Label>
               </div>
-              <div >  
-                <Input title={'usernname'} ></Input>
+              <div>
+                <Input title={"usernname"}></Input>
               </div>
             </div>
 
             <div className="password mt-[20px] ">
               <div className="title text-[23px] leading-[34px] text-whiteWithOpacity text-left">
-               <Label >Password</Label>
+                <Label>Password</Label>
               </div>
               <div className="relative">
                 <input
@@ -81,21 +87,23 @@ const Login = () => {
               </div>
             </div>
             <div className="btn-login mt-[36px] xl:mt-[77px]">
-              <button className="text-white bg-[#38ae00] px-[72px] py-[11px] text-[27px] leading-[40px] font-semibold rounded-[31.5px]" onClick={handleLogin}>
+              <button
+                className=" shadow-[0px_0px_24px_#38AE00] text-white bg-[#38ae00] px-[72px] py-[11px] text-[27px] leading-[40px] font-semibold rounded-[31.5px]"
+                onClick={handleLogin}
+              >
                 Login
               </button>
             </div>
             <div className="register-now  flex justify-center xl:flex-row flex-col mt-[36px] xl:mt-[77px]">
               <p className="text-[#ffffff80] text-[23px] leading-[34px]">
                 Still not registered?
-              
               </p>
               <Link
-                  to="/register"
-                  className="font-bold ml-3 text-[#ffffff] text-[23px] leading-[34px] "
-                >
-                  Register Now
-                </Link>
+                to="/register"
+                className="font-bold ml-3 text-[#ffffff] text-[23px] leading-[34px] "
+              >
+                Register Now
+              </Link>
             </div>
           </div>
         </div>
